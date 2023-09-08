@@ -13,6 +13,8 @@ final class ProfileViewController: UIViewController {
     static let photoIdent = "photo"
     static let postIdent = "post"
     
+    var user: User?
+    
     static var postTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -26,9 +28,9 @@ final class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         #if DEBUG
-            view.backgroundColor = .systemYellow
+            view.backgroundColor = .systemYellow            
         #else
             view.backgroundColor = .systemRed
         #endif
@@ -95,6 +97,11 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section == 0 else { return nil }
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.headerIdent) as! ProfileHeaderView
+
+        if let user = user {
+            headerView.updateNameLabel(user: user)
+        }
+        
         return headerView
     }
 

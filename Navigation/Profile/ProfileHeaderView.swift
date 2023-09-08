@@ -11,6 +11,8 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     
     // MARK: Visual objects
     
+    var user: User?
+    
     var fullNameLabel = UILabel()
     var avatarImageView = UIImageView()
     var statusLabel = UILabel()
@@ -19,6 +21,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     var returnAvatarButton = UIButton()
     var avatarBackground = UIView()
     
+    //private var fullnameUser = "Иван Солярка"
     private var statusText = "Ожидание статуса"
     private var avatarOriginPoint = CGPoint()
     
@@ -26,23 +29,23 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        
+
         setupNameLabel()
         setupStatusLabel()
         setupStatusTextField()
         setupStatusButton()
         setupAvatarImage()
         
-        statusTextField.delegate = self
+        statusTextField.delegate = self        
     }
 
     required init?(coder: NSCoder) {
         fatalError("Error")
     }
     
-    private func setupNameLabel() {
+    func setupNameLabel() {
         fullNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        fullNameLabel.text = "Иван Солярка"
+        //fullNameLabel.text = fullnameUser
         fullNameLabel.font = .boldSystemFont(ofSize: 18)
         fullNameLabel.textColor = .black
         addSubview(fullNameLabel)
@@ -54,7 +57,7 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
         ])
     }
     
-    private func setupStatusLabel() {
+    func setupStatusLabel() {
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         statusLabel.text = statusText
         statusLabel.font = .systemFont(ofSize: 17)
@@ -158,6 +161,14 @@ final class ProfileHeaderView: UITableViewHeaderFooterView {
     }
     
     // MARK: - Event handlers
+    
+    func configureView(with user: User) {
+        fullNameLabel.text = user.fullname
+    }
+    
+    func updateNameLabel(user: User) {
+        fullNameLabel.text = user.fullname
+    }
     
     @objc private func statusTextChanged(_ textField: UITextField) {
         statusText = textField.text ?? ""

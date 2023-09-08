@@ -26,6 +26,7 @@
 		8587B0322A8ECECC00BF6657 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8587B0312A8ECECC00BF6657 /* PhotosViewController.swift */; };
 		8587B0392A8EDBD900BF6657 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8587B0382A8EDBD900BF6657 /* Photo.swift */; };
 		8587B03B2A8EDC2300BF6657 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8587B03A2A8EDC2300BF6657 /* PhotosCollectionViewCell.swift */; };
+		858B4D5C2AA3894F00E714E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858B4D5B2AA3894F00E714E8 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		8587B0312A8ECECC00BF6657 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		8587B0382A8EDBD900BF6657 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8587B03A2A8EDC2300BF6657 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		858B4D5B2AA3894F00E714E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		8503F7212A8D175000E492D6 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				858B4D5D2AA3938800E714E8 /* User */,
 				8587B0362A8ECFBD00BF6657 /* Main */,
 				8503F73B2A8D2EB900E492D6 /* Constans */,
 				8587B0352A8ECEEE00BF6657 /* Login */,
@@ -198,6 +201,14 @@
 				8503F7392A8D1DE800E492D6 /* FeedViewController.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		858B4D5D2AA3938800E714E8 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				858B4D5B2AA3894F00E714E8 /* User.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +329,7 @@
 				8503F7382A8D1C1A00E492D6 /* LoginViewController.swift in Sources */,
 				8503F7402A8D30F400E492D6 /* ArrayPosts.swift in Sources */,
 				8503F73A2A8D1DE800E492D6 /* FeedViewController.swift in Sources */,
+				858B4D5C2AA3894F00E714E8 /* User.swift in Sources */,
 				8503F7232A8D175000E492D6 /* AppDelegate.swift in Sources */,
 				8587B0392A8EDBD900BF6657 /* Photo.swift in Sources */,
 				8587B0292A8ECD2C00BF6657 /* ProfileHeaderView.swift in Sources */,
