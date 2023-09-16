@@ -20,10 +20,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                
         // create tab bar with feed and profile items
         let loginVC = LoginViewController()
+        //loginVC.loginDelegate = LoginInspector()
+        let loginFactory = MyLoginFactory()
+        loginVC.loginDelegate = loginFactory.makeLoginInspector()        
+        
         let profileNC = UINavigationController(rootViewController: loginVC)
-        profileNC.tabBarItem = UITabBarItem(title: "Profile",
-                                            image: UIImage(systemName: "person.crop.circle"),
-                                            selectedImage: UIImage(systemName: "person.crop.circle.fill"))
+        profileNC.tabBarItem = UITabBarItem(
+            title: "Profile",
+            image: UIImage(
+                systemName: "person.crop.circle"
+            ),
+            selectedImage: UIImage(
+                systemName: "person.crop.circle.fill"
+            )
+        )
         
         let feedVC = FeedViewController()
         let feedNC = UINavigationController(rootViewController: feedVC)

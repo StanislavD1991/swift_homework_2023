@@ -38,12 +38,7 @@ class CurrentUserService: UserService {
     }
     
     func getUser(username login: String) -> User? {
-        if login == currentUser.login {
-            return currentUser
-        }
-        else {
-            return nil
-        }
+        return login == currentUser.login ? currentUser : nil
     }
 }
 

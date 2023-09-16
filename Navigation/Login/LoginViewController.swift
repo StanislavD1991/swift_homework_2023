@@ -11,6 +11,8 @@ final class LoginViewController: UIViewController {
     
     // MARK: Visual content
     
+    var loginDelegate: LoginViewControllerDelegate?
+    
     let currentUserService = CurrentUserService(user: User(login: "test", fullname: "Test User", avatar: UIImage(named: "ava")!, status: "Online"))
     let currentTestUserService = TestUserService(user: User(login: "test", fullname: "Test User", avatar: UIImage(named: "ava")!, status: "Online"))
     
@@ -172,7 +174,9 @@ final class LoginViewController: UIViewController {
 
     @objc private func touchLoginButton() {
         
-        //let currentUserService = currentUserService.getUser(username: loginField.text ?? "")
+        //let currentUserService = currentUserService.getUser(username: loginField.text ?? "")        
+        let enteredUserLogin = loginField.text
+        let enteredPassword = passwordField.text
         
         #if DEBUG
             let currentUserService = currentTestUserService.getUser(username: "test")
@@ -180,11 +184,12 @@ final class LoginViewController: UIViewController {
             let currentUserService = currentUserService.getUser(username: loginField.text ?? "")
         #endif
         
-        if currentUserService?.login != nil {
+        if ((loginDelegate?.check(login: enteredUserLogin ?? "", password: enteredPassword ?? "")) == true ) {
             let profileVC = ProfileViewController()
             profileVC.user = currentUserService
             navigationController?.setViewControllers([profileVC], animated: true)
-        } else {
+        }
+        else {
             print("User not found")
             let alertController = UIAlertController(title: "Error", message: "User not found", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
